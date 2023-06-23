@@ -37,11 +37,11 @@ The goals of this project are:
 
 ## RGB (Red, Green, Blue)
 
-There is a good chance that you have already seen or heard the term **RGB**. RGB simply stands for **Red**, **Green** and **Blue**, which are the three colors we need to basically create any type of color. An RGB exists of three small LEDs, one red, one blue and one green. Take a look at the image below, and the values. These values represent each of the color, and when we write these values to the component, it **magically** switches to that color!
+There is a good chance that you have already seen or heard the term **RGB**. RGB simply stands for **Red**, **Green** and **Blue**, which are the three colors we need to basically create any type of color. An RGB exists of three small LEDs, one green, one blue and one red. Take a look at the image below, and the values. These values represent each of the color, and when we write these values to the component, it **magically** switches to that color!
 
 ![How RGB LEDs work.](assets/MKR_1010_T12_IMG01.png)
 
-The RGB component is used for many different purposes. They can be particularly useful to signify the state of something. For example: if we want to signify that everything is OK, we can simply change the color to green, if there's a minor error we can change the color to yellow, and if there is a major error we can change it to red.
+The RGB component is used for many different purposes. They can be particularly useful to signify the state of something. For example: if we want to signify that everything is OK, we can simply change the color to red, if there's a minor error we can change the color to yellow, and if there is a major error we can change it to green.
 
 ### Controlling the Built-in RGB on the MKR WiFi 1010
 
@@ -56,7 +56,7 @@ Controlling the RGB on the MKR WiFi 1010 is slightly different from any previous
 #include <utility/wifi_drv.h>
 ```
 
-After we have included it, it is pretty straightforward. The RGB component uses 25 (green), 26 (red) and 27 (blue), so we need to define those pins by using the following commands:
+After we have included it, it is pretty straightforward. The RGB component uses 25 (red), 26 (green) and 27 (blue), so we need to define those pins by using the following commands:
 
 ```arduino
   WiFiDrv::pinMode(25, OUTPUT);
@@ -67,16 +67,16 @@ After we have included it, it is pretty straightforward. The RGB component uses 
 And to control them inside the `loop()`, we simply use:
 
 ```arduino
-  WiFiDrv::analogWrite(25, 255); //GREEN
-  WiFiDrv::analogWrite(26, 0);   //RED
+  WiFiDrv::analogWrite(25, 255); //RED
+  WiFiDrv::analogWrite(26, 0);   //GREEN
   WiFiDrv::analogWrite(27, 0);   //BLUE
 ```
 
 Or, if we want to use `digitalWrite()` (for simply turning on with full brightness), we can write it like this:
 
 ```arduino
-  WiFiDrv::digitalWrite(25, HIGH); //GREEN
-  WiFiDrv::digitalWrite(26, LOW);   //RED
+  WiFiDrv::digitalWrite(25, HIGH); //RED
+  WiFiDrv::digitalWrite(26, LOW);   //GREEN
   WiFiDrv::digitalWrite(27, LOW);   //BLUE
 ```
 
@@ -107,8 +107,8 @@ The sketch can be found in the snippet below. Upload the sketch to the board.
 #include <utility/wifi_drv.h>
 
 void setup() {
-  WiFiDrv::pinMode(25, OUTPUT); //define green pin
-  WiFiDrv::pinMode(26, OUTPUT); //define red pin
+  WiFiDrv::pinMode(25, OUTPUT); //define red pin
+  WiFiDrv::pinMode(26, OUTPUT); //define green pin
   WiFiDrv::pinMode(27, OUTPUT); //define blue pin
 }
 
